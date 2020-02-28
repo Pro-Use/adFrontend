@@ -43,10 +43,10 @@
         $codes = explode(",", $results);
         echo("Name: ".$name."<br><br><h1>Results</h1>");
         foreach ($codes as $code) {
-            var_dump(substr($code, 0,1));
-            if (substr($code, 0,1) == "NS") {
+            var_dump(substr($code, 0,2));
+            if (substr($code, 0,2) == "NS") {
                 echo("<div>SUCCESS: " . $CODES[$code]);
-            } elseif (substr($code, 0,1) == "NE") {
+            } elseif (substr($code, 0,2) == "NE") {
                 echo("<div>ERROR: " . $CODES[$code]);
             }
         }
