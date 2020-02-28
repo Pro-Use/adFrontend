@@ -39,10 +39,11 @@
           $URL . $query
         );
         $result = json_decode(curl_exec($curl), true);
+        var_dump($result);
         $records = $result["Records"];
         echo("Name: ".$name."<br><br><h1>Results</h1>");
         foreach ($records as $record) {
-            var_dump($record);
+            
             if (substr($record, 0,1) == "NS") {
                 echo("<div>SUCCESS: " . $CODES[$record]);
             } elseif (substr($record, 0,1) == "NE") {
