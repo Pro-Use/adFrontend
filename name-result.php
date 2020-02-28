@@ -42,16 +42,23 @@
         $result = json_decode(curl_exec($curl), true);
         $results = $result["Records"][0]["Results"];
         $codes = explode(",", $results);
-        echo("Name: ".$name."<br><br><h1>Results</h1>");
+        $errors = 0;
+        echo("<h1>Name: ".$name."</h1><br><br><h1>Results</h1>");
         foreach ($codes as $code) {
-            if (substr($code, 0,2) == "NS") {
-                echo("<div>SUCCESS: " . $CODES[$code]);
-            } elseif (substr($code, 0,2) == "NE") {
-                echo("<div>ERROR: " . $CODES[$code]);
+            if (substr($code, 0,2) == "NE") {
+                echo("<div>ERROR: " . $CODES[$code] . "</div>");
+                $errors += 1;
+            } elseif (substr($code, 0,2) == "NS") {
+                echo("<div>SUCCESS: " . $CODES[$code] . "</div>");
             }
+        }
+        if ($errors > 0) {
+            echo("<br><div><h2>***This result would be moderated***</h2></div>");
         }
     }
     ?>
+    <br>
+    <h1><a href="/name-check.html">Return ></a></h1>
     <body>
 
     </body>
