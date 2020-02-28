@@ -44,6 +44,7 @@ if ( isset( $_POST['name'] ) && isset( $_POST['email'] ) ) {
 ?>
 
 <body>
+    <?php echo $MAPS_API_KEY; ?>
 <form  method="post">
   Date:<br>
   <input type="text" name="date" value="1 Jan"><br>
