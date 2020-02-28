@@ -40,15 +40,15 @@
         );
         $result = json_decode(curl_exec($curl), true);
         var_dump($result);
-        $results = $result["Results"];
-        $records = explode(",", $results);
+        $results = $result["Records"][0]["Results"];
+        $codes = explode(",", $results);
         echo("Name: ".$name."<br><br><h1>Results</h1>");
-        foreach ($records as $record) {
+        foreach ($codes as $code) {
             
-            if (substr($record, 0,1) == "NS") {
-                echo("<div>SUCCESS: " . $CODES[$record]);
-            } elseif (substr($record, 0,1) == "NE") {
-                echo("<div>ERROR: " . $CODES[$record]);
+            if (substr($code, 0,1) == "NS") {
+                echo("<div>SUCCESS: " . $CODES[$code]);
+            } elseif (substr($code, 0,1) == "NE") {
+                echo("<div>ERROR: " . $CODES[$code]);
             }
         }
     }
