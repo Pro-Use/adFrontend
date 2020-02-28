@@ -7,6 +7,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+$MAPS_API_KEY = apache_getenv("MAPS_API_KEY");
 
 include 'oauth.php';
 if ( isset( $_POST['name'] ) && isset( $_POST['email'] ) ) {
@@ -82,6 +83,6 @@ if ( isset( $_POST['name'] ) && isset( $_POST['email'] ) ) {
         document.getElementById("latlng").disabled = false;
       }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz69AZONqQhR3cBzeYiAqiaDaoVRHaR5A&libraries=places&callback=initAutocomplete"
+<script src="https://maps.googleapis.com/maps/api/js?key=" + <?php echo $MAPS_API_KEY; ?> + "&libraries=places&callback=initAutocomplete"
    async defer></script>
 </body>
