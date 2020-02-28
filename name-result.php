@@ -39,7 +39,7 @@
           $URL . $query
         );
         $result = json_decode(curl_exec($curl));
-        var_dump($result['Records']);
+        var_dump($result);
     }
     ?>
     <body>
