@@ -38,7 +38,7 @@
         curl_setopt($curl, CURLOPT_URL,
           $URL . $query
         );
-        $result = json_decode(curl_exec($curl));
+        $result = json_decode(curl_exec($curl), true);
         echo($result["Records"]);
     }
     ?>
