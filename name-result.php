@@ -41,7 +41,8 @@
         $result = json_decode(curl_exec($curl), true);
         $records = $result["Records"];
         echo("Name: ".$name."<br><br><h1>Results</h1>");
-        foreach ($records as &$record) {
+        foreach ($records as $record) {
+            var_dump($record);
             if (substr($record, 0,1) == "NS") {
                 echo("<div>SUCCESS: " . $CODES[$record]);
             } elseif (substr($record, 0,1) == "NE") {
