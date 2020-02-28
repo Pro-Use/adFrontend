@@ -40,7 +40,8 @@
         );
         $result = json_decode(curl_exec($curl), true);
         var_dump($result);
-        $records = $result["Records"];
+        $results = $result["Results"];
+        $records = explode(",", $results);
         echo("Name: ".$name."<br><br><h1>Results</h1>");
         foreach ($records as $record) {
             
