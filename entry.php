@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-$MAPS_API_KEY = apache_getenv("MELISSA_KEY");
+$MAPS_API_KEY = apache_getenv("MAPS_API_KEY");
 
 include 'oauth.php';
 if ( isset( $_POST['name'] ) && isset( $_POST['email'] ) ) {
@@ -44,7 +44,6 @@ if ( isset( $_POST['name'] ) && isset( $_POST['email'] ) ) {
 ?>
 
 <body>
-    <?php echo $MAPS_API_KEY; ?>
 <form  method="post">
   Date:<br>
   <input type="text" name="date" value="1 Jan"><br>
