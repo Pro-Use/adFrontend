@@ -54,6 +54,8 @@
         }
         if ($errors > 0) {
             echo("<br><div><h2>***This result would be moderated***</h2></div>");
+        } else {
+            echo("<br><div><h2>***This result would not be moderated***</h2></div>");
         }
     }
     ?>
