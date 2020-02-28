@@ -84,6 +84,6 @@ if ( isset( $_POST['name'] ) && isset( $_POST['email'] ) ) {
         document.getElementById("latlng").disabled = false;
       }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=" + <?php echo $MAPS_API_KEY; ?> + "&libraries=places&callback=initAutocomplete"
+<script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $MAPS_API_KEY; ?>&libraries=places&callback=initAutocomplete"
    async defer></script>
 </body>
