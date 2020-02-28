@@ -31,6 +31,7 @@
 
     if ( isset( $_POST['name'] )) {
         $name = $_POST['name'];
+        $q_name = str_replace(" ", "%20", $name);
         $URL = "https://globalname.melissadata.net/V3/WEB/GlobalName/doGlobalName?";
         $query = "t=1&id=" . $MELISSA_KEY . "&opt=''&comp=''&full=" . $name . "&format=json";   
         $curl = curl_init();
