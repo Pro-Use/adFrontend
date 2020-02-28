@@ -33,7 +33,7 @@
         $name = $_POST['name'];
         $q_name = str_replace(" ", "%20", $name);
         $URL = "https://globalname.melissadata.net/V3/WEB/GlobalName/doGlobalName?";
-        $query = "t=1&id=" . $MELISSA_KEY . "&opt=''&comp=''&full=" . $name . "&format=json";   
+        $query = "t=1&id=" . $MELISSA_KEY . "&opt=''&comp=''&full=" . $q_name . "&format=json";   
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($curl, CURLOPT_URL,
