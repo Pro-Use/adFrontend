@@ -53,7 +53,7 @@
                 $errors += 1;
             } elseif (substr($code, 0,2) == "NS") {
                 echo("<div>SUCCESS: " . $CODES[$code] . "</div>");
-                if (intval(substr($code, 3,4)) >= 5 || intval(substr($code, 3,4)) <= 8) {
+                if (intval(substr($code, 3,4)) >= 5 && intval(substr($code, 3,4)) <= 8) {
                     $census_matches += 1;
                 }
             }
