@@ -58,6 +58,7 @@
                 }
             }
         }
+        echo("Census:".$census_matches);
         if ($census_matches < $name_count) {
             echo("<div>ERROR: Not all names match census data</div>");
             $errors += 1;
