@@ -43,11 +43,6 @@
         $bestMatch = $parseResult->getBestMatch();
         $likeliness = $bestMatch->getLikeliness() * 100;
         $confidence = $bestMatch->getConfidence() * 100;
-
-        echo("<h1>Name: ".$name."</h1><br><br><h1>Results</h1>");
-        
-        echo("<div>Likeliness name is real: " . $likeliness . "% </div>");
-        echo("<div>confidence: " . $confidence . "% </div>");
  
     }
     ?>
