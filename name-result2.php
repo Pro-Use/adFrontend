@@ -46,9 +46,10 @@
  
     }
     ?>
-    <h1>Name: <?php echo($name);?></h1><br><br><h1>Results</h1>
+    <h1>Name: <?php echo($name);?></h1><br>
     <p> Likeliness threshold = <?php echo($likeliness_thresh);?>%</p>
     <p> Confidence threshold = <?php echo($confidence_thresh);?>%</p>
+    <h1>Results</h1>
     <div>Likeliness name is real: <?php echo($likeliness);?>% </div>
     <div>Confidence: <?php echo($confidence);?>% </div>
     <?php
