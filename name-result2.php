@@ -36,7 +36,7 @@
     $personNameParser = $serviceFactory->parserServices()->personNameParser();
     $parseResult = $personNameParser->parse($inputPerson);
     $json_string = json_encode($parseResult, JSON_PRETTY_PRINT);
-    echo($json_string);
+    echo($parseResult);
     
 if ( isset( $_POST['name'] )) {
         $name = $_POST['name'];
