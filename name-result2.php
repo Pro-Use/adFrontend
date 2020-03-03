@@ -22,6 +22,19 @@
     
     $ping = $serviceFactory->systemServices()->ping();
     $pong = $ping->ping();
+    
+    use org\nameapi\ontology\input\entities\person\NaturalInputPerson;
+    use org\nameapi\ontology\input\entities\person\name\InputPersonName;
+
+    $inputPerson = NaturalInputPerson::builder()
+            ->name(InputPersonName::westernBuilder()
+                    ->fullname("John F. Kennedy")
+                    ->build())
+            ->build();
+    
+    $personNameParser = $this->makeServiceFactory()->parserServices()->personNameParser();
+    $parseResult = $personNameParser->parse($inputPerson);
+    var_dump($parseResult);
 
 if ( isset( $_POST['name'] )) {
         $name = $_POST['name'];
