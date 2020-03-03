@@ -16,7 +16,7 @@
     use org\nameapi\client\services\ServiceFactory;
     $context = Context::builder()
         ->place('US')
-        ->priority(Priority::REALTIME)
+//        ->priority(Priority::REALTIME)
         ->build();
   
     $serviceFactory = new ServiceFactory('e613e25a6980a345cd9b973e10dd6b42-user1', $context);
