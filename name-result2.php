@@ -32,7 +32,7 @@
 
         $inputPerson = NaturalInputPerson::builder()
                 ->name(InputPersonName::westernBuilder()
-                        ->fullname("John F. Kennedy")
+                        ->fullname($name)
                         ->build())
                 ->build();
 
