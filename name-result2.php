@@ -34,7 +34,8 @@
     
     $personNameParser = $serviceFactory->parserServices()->personNameParser();
     $parseResult = $personNameParser->parse($inputPerson);
-    var_dump($parseResult);
+    $bestMatch = $parseResult->getBestMatch();
+    var_dump($bestMatch->getLikeliness());
 
 if ( isset( $_POST['name'] )) {
         $name = $_POST['name'];
