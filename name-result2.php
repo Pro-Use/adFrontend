@@ -32,7 +32,7 @@
                     ->build())
             ->build();
     
-    $personNameParser = $this->makeServiceFactory()->parserServices()->personNameParser();
+    $personNameParser = $serviceFactory->makeServiceFactory()->parserServices()->personNameParser();
     $parseResult = $personNameParser->parse($inputPerson);
     var_dump($parseResult);
 
