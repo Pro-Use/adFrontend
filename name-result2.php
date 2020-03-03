@@ -12,6 +12,7 @@
     
     use org\nameapi\ontology\input\context\Context;
     use org\nameapi\ontology\input\context\Priority;
+    use org\nameapi\ontology\input\context\Priority;
     use org\nameapi\client\services\ServiceFactory;
     $context = Context::builder()
         ->place('US')
@@ -34,9 +35,9 @@
     
     $personNameParser = $serviceFactory->parserServices()->personNameParser();
     $parseResult = $personNameParser->parse($inputPerson);
-    $json_string = json_encode($data, $parseResult);
+    $json_string = json_encode($parseResult, JSON_PRETTY_PRINT);
     echo($json_string);
-
+    
 if ( isset( $_POST['name'] )) {
         $name = $_POST['name'];
  
