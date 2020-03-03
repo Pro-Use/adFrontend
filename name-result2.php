@@ -12,10 +12,11 @@
     
     use org\nameapi\ontology\input\context\Context;
     use org\nameapi\ontology\input\context\Priority;
+    use org\nameapi\ontology\input\context\Priority;
     use org\nameapi\client\services\ServiceFactory;
     $context = Context::builder()
         ->place('US')
-//        ->priority(Priority::REALTIME)
+        ->priority(Priority::REALTIME)
         ->build();
   
     $serviceFactory = new ServiceFactory('e613e25a6980a345cd9b973e10dd6b42-user1', $context);
@@ -34,7 +35,8 @@
     
     $personNameParser = $serviceFactory->parserServices()->personNameParser();
     $parseResult = $personNameParser->parse($inputPerson);
-    var_dump($parseResult);
+    $json_string = json_encode($data, $parseResult);
+    echo($json_string);
 
 if ( isset( $_POST['name'] )) {
         $name = $_POST['name'];
