@@ -18,6 +18,8 @@
     
     if ( isset( $_POST['name'] )) {
         $name = $_POST['name'];
+        $likeliness_thresh = 50;
+        $confidence_thresh = 50;
 
         $context = Context::builder()
             ->place('US')
@@ -43,10 +45,23 @@
         $confidence = $bestMatch->getConfidence() * 100;
 
         echo("<h1>Name: ".$name."</h1><br><br><h1>Results</h1>");
+        
         echo("<div>Likeliness name is real: " . $likeliness . "% </div>");
         echo("<div>confidence: " . $confidence . "% </div>");
  
     }
+    ?>
+    <h1>Name: <?php echo($name);?></h1><br><br><h1>Results</h1>
+    <p> Likeliness threshold = <?php echo($likeliness_thresh);?>%</p>
+    <p> Confidence threshold = <?php echo($confidence_thresh);?>%</p>
+    <div>Likeliness name is real: <?php echo($likeliness);?>% </div>
+    <div>Confidence: <?php echo($confidence);?>% </div>
+    <?php
+        if ($confidence < $confidence_thresh || $likeliness < $likeliness_thresh ) {
+            echo("<br><div><h2>***This result would be moderated***</h2></div>");
+        } else {
+            echo("<br><div><h2>***This result would not be moderated***</h2></div>");
+        }
     ?>
     <br>
     <h1><a href="/name-check2.html">Return ></a></h1>
