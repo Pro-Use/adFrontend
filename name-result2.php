@@ -8,7 +8,7 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     
-    require_once('./org/nameapi/client/services/ServiceFactory.php');
+    require_once('org/nameapi/client/services/ServiceFactory.php');
     
     use org\nameapi\ontology\input\context\Context;
     use org\nameapi\ontology\input\context\Priority;
