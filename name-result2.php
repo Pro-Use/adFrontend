@@ -12,7 +12,7 @@
     
     use org\nameapi\ontology\input\context\Context;
     use org\nameapi\ontology\input\context\Priority;
-    use org\nameapi\ontology\input\context\Priority;
+//    use org\nameapi\ontology\input\context\Priority;
     use org\nameapi\client\services\ServiceFactory;
     $context = Context::builder()
         ->place('US')
