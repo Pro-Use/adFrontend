@@ -47,7 +47,7 @@ foreach ($results as $result) {
     	console.log('connected to socket');
   }); 
  
-  socket.on('new_names', function(data) {
+  socket.on('new_arrival', function(data) {
 	console.log(data);
 	var board_line = 1;
 	data.forEach(function(item) {
