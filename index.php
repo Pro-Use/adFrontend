@@ -41,7 +41,7 @@ foreach ($results as $result) {
 </body>
 <script>
   var socket = io.connect({
-  path: ':4444/'
+  path: ':44444/'
 });
 
   socket.on('connect', function(data) {
