@@ -40,7 +40,9 @@ foreach ($results as $result) {
 ?>
 </body>
 <script>
-  var socket = io.connect();
+  var socket = io.connect({
+  path: ':4444/'
+});
 
   socket.on('connect', function(data) {
     	socket.emit('join', 'Hello World from client');
