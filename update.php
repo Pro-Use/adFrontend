@@ -29,7 +29,7 @@ if ($action == "accept"){
     $results = json_decode(curl_exec($curl), true);
     curl_close($curl);
 
-    echo("ID:" . $results . " Accepted");
+    echo("ID:" . $results['id'] . " Accepted");
     
 } elseif ($action == "delete") {
     
