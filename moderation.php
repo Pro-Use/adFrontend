@@ -48,7 +48,7 @@ foreach ($results as $result) { ?>
 $curl = curl_init();
 curl_setopt_array($curl, [
     CURLOPT_RETURNTRANSFER => 1,
-    CURLOPT_URL => 'http://localhost:44444/departuress/moderation',
+    CURLOPT_URL => 'http://localhost:44444/departures/moderation',
     CURLOPT_ENCODING => "",
     CURLOPT_MAXREDIRS => 10,
     CURLOPT_TIMEOUT => 30,
@@ -61,7 +61,7 @@ $results = json_decode(curl_exec($curl), true);
 curl_close($curl);
 
 $board_line = 1;
-echo("<h1>Arrivals:</h1>");
+echo("<h1>Departures:</h1>");
 foreach ($results as $result) { ?>
     <div id="board-line-<?php echo($board_line);?>">
         <span><?php echo($result["date"]);?></span>
