@@ -32,7 +32,7 @@ foreach ($results as $result) { ?>
     <div id="board-line-<?php echo($board_line);?>">
         <span><?php echo($result["date"]);?></span>
         <span><?php echo($result["name"]);?></span>
-        <form method="post" action="update.php">
+        <form method="post" action="arrival-update.php">
             <input type="hidden" value="<?php echo($result["ID"]);?>" name="ID" id="ID">
             <input type="radio" id="accept" name="update" value="accept">
             <label for="accept">Accept</label>
@@ -66,7 +66,7 @@ foreach ($results as $result) { ?>
     <div id="board-line-<?php echo($board_line);?>">
         <span><?php echo($result["date"]);?></span>
         <span><?php echo($result["name"]);?></span>
-        <form method="post" action="update.php">
+        <form method="post" action="departure-update.php">
             <input type="hidden" value="<?php echo($result["ID"]);?>" name="ID" id="ID">
             <input type="radio" id="accept" name="update" value="accept">
             <label for="accept">Accept</label>
