@@ -1,5 +1,6 @@
 <!DOCTYPE html >
-  <head>
+<?php $MAPS_API_KEY = apache_getenv("MAPS_API_KEY"); ?>
+<head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <title>Using MySQL and PHP with Google Maps</title>
