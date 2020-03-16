@@ -23,25 +23,24 @@ $arr_geo = json_decode(curl_exec($curl), true);
 curl_close($curl);
 
 // Start XML file, create parent node
-$doc = domxml_new_doc("1.0");
-$node = $doc->create_element("markers");
-$parnode = $doc->append_child($node);
+$dom = new DOMDocument("1.0");
+$node = $dom->createElement("markers");
+$parnode = $dom->appendChild($node);
 
 header("Content-type: text/xml");
 
 foreach ($arr_geo as $row) {
-  $node = $doc->create_element("marker");
-  $newnode = $parnode->append_child($node);
+  $node = $dom->createElement("marker");
+  $newnode = $parnode->appendChild($node);
 
-  $newnode->set_attribute("id", $row['ID']);
-  $newnode->set_attribute("name", $row['name']);
-  $newnode->set_attribute("date", $row['date']);
+  $newnode->setAttribute("id", $row['ID']);
+  $newnode->setAttribute("name", $row['name']);
+  $newnode->setAttribute("date", $row['date']);
   $latlng = explode(',',  $row['geo']);
-  $newnode->set_attribute("lat", $latlng[0]);
-  $newnode->set_attribute("lng", $latlng[1]);
-  $newnode->set_attribute("type", $row['arrival']);
+  $newnode->setAttribute("lat", $latlng[0]);
+  $newnode->setAttribute("lng", $latlng[1]);
+  $newnode->setAttribute("type", $row['arrival']);
 }
 
-$xmlfile = $doc->dump_mem();
-echo $xmlfile;
+echo $dom->saveXML();
 
