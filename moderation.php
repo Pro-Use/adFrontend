@@ -28,7 +28,7 @@ curl_close($curl);
 
 $board_line = 1;
 foreach ($results as $result) { ?>
-    echo ('<div id="board-line-<?php echo($board_line);?>">
+    <div id="board-line-<?php echo($board_line);?>">
         <span><?php echo($result["date"]);?></span>
         <span><?php echo($result["name"]);?></span>
         <form method="post" action="update.php">
@@ -38,7 +38,7 @@ foreach ($results as $result) { ?>
             <label for="delete">Delete</label>
             <input type="submit" value="Update">
         </form>
-    </div>');
+    </div>
    <?php $board_line += 1;
 } 
 
