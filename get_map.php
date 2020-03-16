@@ -39,7 +39,7 @@ foreach ($arr_geo as $row) {
   $latlng = explode(',',  $row['geo']);
   $newnode->setAttribute("lat", $latlng[0]);
   $newnode->setAttribute("lng", $latlng[1]);
-  $newnode->setAttribute("type", $row['arrival']);
+  $newnode->setAttribute("type", 'arrival');
 }
 
 echo $dom->saveXML();
