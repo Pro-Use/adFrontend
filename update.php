@@ -17,12 +17,12 @@ if ($action == "accept"){
     $curl = curl_init();
     curl_setopt_array($curl, [
         CURLOPT_RETURNTRANSFER => 1,
-        CURLOPT_URL => 'http://localhost:44444/arrivals/'.filter_input(INPUT_POST, "ID"),
+        CURLOPT_URL => 'http://localhost:44444/arrivals/accept/'.filter_input(INPUT_POST, "ID"),
         CURLOPT_ENCODING => "",
         CURLOPT_MAXREDIRS => 10,
         CURLOPT_TIMEOUT => 30,
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => "PUT",
+        CURLOPT_CUSTOMREQUEST => "GET",
         CURLOPT_HTTPHEADER => array(
           "authorization: Bearer " . $token),
     ]);
