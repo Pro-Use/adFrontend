@@ -25,7 +25,7 @@ curl_close($arr_curl);
 $dep_curl = curl_init();
 curl_setopt_array($dep_curl, [
     CURLOPT_RETURNTRANSFER => 1,
-    CURLOPT_URL => 'http://localhost:44444/arrivals/map',
+    CURLOPT_URL => 'http://localhost:44444/departures/map',
     CURLOPT_ENCODING => "",
     CURLOPT_MAXREDIRS => 10,
     CURLOPT_TIMEOUT => 30,
