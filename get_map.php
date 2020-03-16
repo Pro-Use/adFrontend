@@ -43,3 +43,4 @@ foreach ($arr_geo as $row) {
 }
 
 echo $dom->saveXML();
+var_dump($arr_geo);
