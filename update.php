@@ -17,7 +17,7 @@ if ($action == "accept"){
     $curl = curl_init();
     curl_setopt_array($curl, [
         CURLOPT_RETURNTRANSFER => 1,
-        CURLOPT_URL => 'http://localhost:44444/arrivals/'.filter_input(INPUT_POST, "ID"),
+        CURLOPT_URL => 'http://localhost:44444/arrivals/accept/'.filter_input(INPUT_POST, "ID"),
         CURLOPT_ENCODING => "",
         CURLOPT_MAXREDIRS => 10,
         CURLOPT_TIMEOUT => 30,
