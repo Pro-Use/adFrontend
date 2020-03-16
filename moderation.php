@@ -32,7 +32,7 @@ foreach ($results as $result) { ?>
         <span><?php echo($result["date"]);?></span>
         <span><?php echo($result["name"]);?></span>
         <form method="post" action="update.php">
-            <input type="hidden" value="<?php echo($result["ID"]);?>"
+            <input type="hidden" value="<?php echo($result["ID"]);?>" name="ID" id="ID">
             <input type="radio" id="accept" name="update" value="accept">
             <label for="accept">Accept</label>
             <input type="radio" id="delete" name="update" value="delete">
