@@ -66,5 +66,5 @@ curl_close($dep_curl);
 //  $newnode->setAttribute("type", 'departure');
 //}
 
-echo $dom->saveXML();
+//echo $dom->saveXML();
 var_dump($dep_geo);
