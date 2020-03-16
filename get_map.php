@@ -7,8 +7,8 @@ include 'oauth.php';
 $token = getToken();
 
 
-$curl = curl_init();
-curl_setopt_array($curl, [
+$arr_curl = curl_init();
+curl_setopt_array($arr_curl, [
     CURLOPT_RETURNTRANSFER => 1,
     CURLOPT_URL => 'http://localhost:44444/arrivals/map',
     CURLOPT_ENCODING => "",
@@ -19,11 +19,11 @@ curl_setopt_array($curl, [
     CURLOPT_HTTPHEADER => array(
       "authorization: Bearer " . $token),
 ]);
-$arr_geo = json_decode(curl_exec($curl), true);
-curl_close($curl);
+$arr_geo = json_decode(curl_exec($arr_curl), true);
+curl_close($arr_curl);
 
-$curl = curl_init();
-curl_setopt_array($curl, [
+$dep_curl = curl_init();
+curl_setopt_array($dep_curl, [
     CURLOPT_RETURNTRANSFER => 1,
     CURLOPT_URL => 'http://localhost:44444/arrivals/map',
     CURLOPT_ENCODING => "",
@@ -34,8 +34,8 @@ curl_setopt_array($curl, [
     CURLOPT_HTTPHEADER => array(
         "authorization: Bearer " . $token),
 ]);
-$dep_geo = json_decode(curl_exec($curl), true);
-curl_close($curl);
+$dep_geo = json_decode(curl_exec($dep_curl), true);
+curl_close($dep_curl);
 
 // Start XML file, create parent node
 $dom = new DOMDocument("1.0");
@@ -44,23 +44,23 @@ $parnode = $dom->appendChild($node);
 
 header("Content-type: text/xml");
 
-foreach ($arr_geo as $row) {
+foreach ($arr_geo as $arr_row) {
   $node = $dom->createElement("marker");
   $newnode = $parnode->appendChild($node);
-  $newnode->setAttribute("name", $row['name']);
-  $newnode->setAttribute("date", $row['date']);
-  $latlng = explode(',',  $row['geo']);
+  $newnode->setAttribute("name", $arr_row['name']);
+  $newnode->setAttribute("date", $arr_row['date']);
+  $latlng = explode(',',  $arr_row['geo']);
   $newnode->setAttribute("lat", $latlng[0]);
   $newnode->setAttribute("lng", $latlng[1]);
   $newnode->setAttribute("type", 'arrival');
 }
 
-foreach ($dep_geo as $row) {
+foreach ($dep_geo as $dep_row) {
   $node = $dom->createElement("marker");
   $newnode = $parnode->appendChild($node);
-  $newnode->setAttribute("name", $row['name']);
-  $newnode->setAttribute("date", $row['date']);
-  $latlng = explode(',',  $row['geo']);
+  $newnode->setAttribute("name", $dep_row['name']);
+  $newnode->setAttribute("date", $dep_row['date']);
+  $latlng = explode(',',  $dep_row['geo']);
   $newnode->setAttribute("lat", $latlng[0]);
   $newnode->setAttribute("lng", $latlng[1]);
   $newnode->setAttribute("type", 'departure');
