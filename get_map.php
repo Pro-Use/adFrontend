@@ -37,34 +37,34 @@ curl_setopt_array($dep_curl, [
 $dep_geo = json_decode(curl_exec($dep_curl), true);
 curl_close($dep_curl);
 
-// Start XML file, create parent node
-$dom = new DOMDocument("1.0");
-$node = $dom->createElement("markers");
-$parnode = $dom->appendChild($node);
-
-header("Content-type: text/xml");
-
-foreach ($arr_geo as $arr_row) {
-  $node = $dom->createElement("marker");
-  $newnode = $parnode->appendChild($node);
-  $newnode->setAttribute("name", $arr_row['name']);
-  $newnode->setAttribute("date", $arr_row['date']);
-  $latlng = explode(',',  $arr_row['geo']);
-  $newnode->setAttribute("lat", $latlng[0]);
-  $newnode->setAttribute("lng", $latlng[1]);
-  $newnode->setAttribute("type", 'arrival');
-}
-
-foreach ($dep_geo as $dep_row) {
-  $node = $dom->createElement("marker");
-  $newnode = $parnode->appendChild($node);
-  $newnode->setAttribute("name", $dep_row['name']);
-  $newnode->setAttribute("date", $dep_row['date']);
-  $latlng = explode(',',  $dep_row['geo']);
-  $newnode->setAttribute("lat", $latlng[0]);
-  $newnode->setAttribute("lng", $latlng[1]);
-  $newnode->setAttribute("type", 'departure');
-}
+//// Start XML file, create parent node
+//$dom = new DOMDocument("1.0");
+//$node = $dom->createElement("markers");
+//$parnode = $dom->appendChild($node);
+//
+//header("Content-type: text/xml");
+//
+//foreach ($arr_geo as $arr_row) {
+//  $node = $dom->createElement("marker");
+//  $newnode = $parnode->appendChild($node);
+//  $newnode->setAttribute("name", $arr_row['name']);
+//  $newnode->setAttribute("date", $arr_row['date']);
+//  $latlng = explode(',',  $arr_row['geo']);
+//  $newnode->setAttribute("lat", $latlng[0]);
+//  $newnode->setAttribute("lng", $latlng[1]);
+//  $newnode->setAttribute("type", 'arrival');
+//}
+//
+//foreach ($dep_geo as $dep_row) {
+//  $node = $dom->createElement("marker");
+//  $newnode = $parnode->appendChild($node);
+//  $newnode->setAttribute("name", $dep_row['name']);
+//  $newnode->setAttribute("date", $dep_row['date']);
+//  $latlng = explode(',',  $dep_row['geo']);
+//  $newnode->setAttribute("lat", $latlng[0]);
+//  $newnode->setAttribute("lng", $latlng[1]);
+//  $newnode->setAttribute("type", 'departure');
+//}
 
 echo $dom->saveXML();
-//var_dump($arr_geo);
+var_dump($dep_geo);
